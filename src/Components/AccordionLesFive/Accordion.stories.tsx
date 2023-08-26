@@ -1,41 +1,23 @@
 // .storybook/preview.tsx
 
-import React from 'react';
-
-import Accordion, {AccordionPropsType} from "./Accordion";
-import {Story} from "@storybook/react";
-import callBack1 from "../../lesson8CallBack01/callBack-1";
-
-
+import React, {useState} from 'react';
+// @ts-ignore
+import {Accordion, AccordionBody, AccordionTitle} from "./Accordion";
+import {action} from "@storybook/addon-actions";
 
 export default {
     title: 'Accordion',
     component: Accordion
-
 }
 
+const callBack = action('accordion node change event friend')
 
-const Template: Story<AccordionPropsType> = args => <Accordion {...args} />
+export const MenuCollapsedMode = () => <Accordion titleValue={"Menu"} collapsed={true} onChange={callBack}/>
+export const UserUncollapsedMode = () => <Accordion titleValue={"Users"} collapsed={false} onChange={callBack}/>
 
-export const  MenuCollapsedMode2 = Template.bind({}); //Take copy func Templte
-MenuCollapsedMode2["args"] = {
-    titleValue: "Menu",
-    collapsed: true,
-    onChange: callBack1,
+export const NodeChanging = () => {
+    const [value, setValue] = useState<boolean>(true)
 
+    return <Accordion titleValue={'Users'} collapsed={value} onChange={() => setValue(!value)}/>
 }
 
-
-
-// const preview: Preview = {
-//     decorators: [
-//         (Story) => (
-//             <ThemeProvider theme="default">
-//                 {/* ? Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
-//                 <Story />
-//             </ThemeProvider>
-//         ),
-//     ],
-// };
-//
-// export default preview;

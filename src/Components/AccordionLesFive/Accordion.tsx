@@ -41,14 +41,14 @@ type AccordionTitlePropsType = {
     onChange: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+export function AccordionTitle(props: AccordionTitlePropsType) {
     console.log('Accordion rendering')
     return (
         <h3 onClick={props.onChange}> ---{props.title} ---</h3>
     )
 }
 
-function AccordionBody() {
+export function AccordionBody() {
     return <ul>
         <li>1</li>
         <li>2</li>
