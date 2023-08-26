@@ -1,44 +1,50 @@
 import React from "react";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     titleValue: string;
     collapsed: boolean
+    onChange: () => void
 }
 
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     // debugger;
     return <div>
-        <AccordionTitle title={props.titleValue}/>
+        <AccordionTitle
+
+            title={props.titleValue}
+            onChange={props.onChange}/>
         {!props.collapsed && <AccordionBody/>}
     </div>
 
 }
 
 
-function Accordion2(props: AccordionPropsType) {
-    debugger;
-    if (props.collapsed === true) {
-        return <div>
-            <AccordionTitle title={props.titleValue}/>
-        </div>
-    } else {
-        return <div>
-            <AccordionTitle title={props.titleValue}/>
-            <AccordionBody/>
-        </div>
-    }
-}
+// function Accordion2(props: AccordionPropsType) {
+//     debugger;
+//     if (props.collapsed === true) {
+//         return <div>
+//             <AccordionTitle title={props.titleValue}/>
+//         </div>
+//     } else {
+//         return <div>
+//             <AccordionTitle
+//
+//                 title={props.titleValue}/>
+//             <AccordionBody/>
+//         </div>
+//     }
+// }
 
 type AccordionTitlePropsType = {
     title: string
-
+    onChange: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log('Accordion rendering')
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={props.onChange}> ---{props.title} ---</h3>
     )
 }
 
