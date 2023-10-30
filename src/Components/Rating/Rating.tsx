@@ -2,7 +2,7 @@ import React from "react";
 
 export type ratingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
-type RatingPropsType = {
+export type RatingPropsType = {
     value: ratingValueType
     onClick: (value: ratingValueType) => void
 }

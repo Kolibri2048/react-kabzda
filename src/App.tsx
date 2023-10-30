@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import Accordion from "./Components/AccordionLesFive/Accordion";
+import Accordion, {AccordionBody} from "./Components/AccordionLesFive/Accordion";
 
 import './App.css';
 import {Rating, ratingValueType} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/useStateLes6/OnOff";
 import UnControlledAccordion from "./Components/UnControlledAccordion/UnControlledAccordion";
 import UnControlledRating from './Components/UnControlledRating/UnControlledRating';
+import {Select} from "./Components/Select/select";
 
 
 function App() {
@@ -19,17 +20,19 @@ function App() {
 
             {/*<OnOff/>*/}
             {/*<OnOff/>*/}
-            {/*<OnOff/>*/}
+            <OnOff/>
 
             <UnControlledAccordion titleValue={'Menu'}/>
-            {/*<UnControlledAccordion titleValue={'Menu'}/>*/}
+            <UnControlledAccordion titleValue={'Menu'}/>
             <UnControlledRating />
             <Rating value={ratingValue} onClick={setRatingValue}/>
-
-            <Accordion titleValue={'Menu'}
-                       collapsed={accordionCollapsed}
-                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
-            />
+            <Select value={1} onChange={()=> {}} items={[{title:'Dimych', value: 1}, {title:'Valera', value: 2},
+                {title:'Artem', value:3}, {title:'Victor', value:4}]}/>
+            {/*<Accordion titleValue={'Menu'}*/}
+            {/*           collapsed={accordionCollapsed}*/}
+            {/*           onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}*/}
+            {/*           onClick={() => {}}*/}
+            {/*/>*/}
             {/*<Accordion titleValue={'Menu'} collapsed={false}/>*/}
             {/*<Rating value={1}/>*/}
             {/*<Rating value={2}/>*/}
