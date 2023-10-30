@@ -20,7 +20,6 @@ function App() {
 
             {/*<OnOff/>*/}
             {/*<OnOff/>*/}
-            <OnOff/>
 
             <UnControlledAccordion titleValue={'Menu'}/>
             <UnControlledAccordion titleValue={'Menu'}/>
