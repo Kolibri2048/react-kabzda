@@ -12,4 +12,4 @@ export default {
 
 const callBack = action('rating changed inside')
 
-export const EmptyRating = () => <UnControlledAccordion titleValue={'s'} />
+export const EmptyRating = () => <UnControlledAccordion titleValue={'Users'} />
