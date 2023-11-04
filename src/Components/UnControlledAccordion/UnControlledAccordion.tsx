@@ -1,24 +1,18 @@
-import React, {useReducer, useState} from "react";
-import {action} from "@storybook/addon-actions";
+import React, {useReducer} from "react";
+import {reducer} from "./reducer";
 
 type AccordionPropsType = {
     titleValue: string;
     // collapsed: boolean
 }
 
-type ActionType = {
+export type ActionType = {
     type: string
 }
 
+export const TOGGLE_COLLAPSED = 'TOGGLE-COLLAPSED'
 
-const reducer = (state: boolean, action:ActionType) => {
-    // action description
-    if(action.type === "TOGGLE-COLLAPSED") {
-        return !state
-    }
 
-    return state
-}
 
 
 function UnControlledAccordion(props: AccordionPropsType) {
@@ -27,7 +21,8 @@ function UnControlledAccordion(props: AccordionPropsType) {
     // const collapsed = false
     // let [collapsed, setCollapsed] = useState(false)
     // первый параметр функция, второй параметр первоначальное значение так как у нас state boolean то передаём это значение
-    let [collapsed, setCollapsed] = useReducer(reducer, false)
+    // debugger;
+    let [collapsed, dispatch] = useReducer(reducer, false)
 
     //
     // const ButtonToogleHandler = () => {
@@ -36,7 +31,9 @@ function UnControlledAccordion(props: AccordionPropsType) {
     return <div>
 
 
-        <AccordionTitle title={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>
+        {/*<AccordionTitle title={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>*/}
+
+        <AccordionTitle title={props.titleValue} onClick={() => {dispatch({type: TOGGLE_COLLAPSED}) } }/>
         {!collapsed && <AccordionBody/>}
     </div>
 
