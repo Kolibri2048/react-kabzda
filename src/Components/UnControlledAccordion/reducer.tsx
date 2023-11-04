@@ -1,6 +1,6 @@
 import {ActionType, TOGGLE_COLLAPSED} from "./UnControlledAccordion";
 
-type StateType = {
+export type StateType = {
     collapsed: boolean
 }
 // ... : StateType мы всегда должны возращать объект такого же типа который к нам и пришёл. Так как нащ редюсе принимает объект иы должны возращать его
