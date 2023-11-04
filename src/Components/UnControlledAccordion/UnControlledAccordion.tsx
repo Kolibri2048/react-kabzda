@@ -18,23 +18,17 @@ export const TOGGLE_COLLAPSED = 'TOGGLE-COLLAPSED'
 function UnControlledAccordion(props: AccordionPropsType) {
     // debugger;
     console.log('Uncontrolled rendering')
-    // const collapsed = false
-    // let [collapsed, setCollapsed] = useState(false)
     // первый параметр функция, второй параметр первоначальное значение так как у нас state boolean то передаём это значение
-    // debugger;
-    let [collapsed, dispatch] = useReducer(reducer, false)
+    let [state, dispatch] = useReducer(reducer, {collapsed: false})
 
-    //
-    // const ButtonToogleHandler = () => {
-    //     setCollapsed(!collapsed)
-    // }
+
     return <div>
 
 
         {/*<AccordionTitle title={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>*/}
 
         <AccordionTitle title={props.titleValue} onClick={() => {dispatch({type: TOGGLE_COLLAPSED}) } }/>
-        {!collapsed && <AccordionBody/>}
+        {!state.collapsed && <AccordionBody/>}
     </div>
 
 }
