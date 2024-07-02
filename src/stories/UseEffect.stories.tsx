@@ -1,5 +1,4 @@
 import React, {useEffect, useMemo, useReducer, useState} from "react";
-import {log} from "util";
 
 export default {
     title: 'useEffect demo'
